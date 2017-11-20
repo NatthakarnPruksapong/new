@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <!--------------------------------------------tapbar------------------------------------------------------------------>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ข้าวตังเสวยแม่ณี</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">ORDER</a></li>
+                <li><a href="ListName.cshtml">LIST NAME</a></li>
+                <li><a href="#">MENU PRODUCT</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>  <!---logout---->
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--------------------------------------------checkbox------------------------------------------------------------------>
+    <div class="container">
+
+        <form>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">ที่ยังไม่โอน
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">ที่โอนแล้ว
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">ที่ต้องทำการจัดส่ง
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">ที่จัดส่งแล้ว
+            </label>
+
+
+            <!--------------------------------------------table------------------------------------------------------------------>
+
+            <table id="customers">
+
+                <tr>
+                    <th>วัน/เดือน/ปี</th>
+                    <th>รายการออร์เดอร์</th>
+                    <th>ชื่อลูกค้าที่สั่ง   </th>
+                    <th>สถานะออร์เดอร์</th>
+                </tr>
+
+                <tr>
+                    <td>17/02/60</td>
+                    <td>
+                        ข้าวตังเสวยรสข้าวหอมมะลิ 50 ถุง
+                        ข้าวตังเสวยรสข้าวไรซ์เบอร์รี่ 20ถุง
+                    </td>
+                    <td>ปราณี</td>
+                    <td>
+                        <select>
+                            <!--dropdown-->
+                            <option value="0">ยังไม่โอน</option>
+                            <option value="1">โอนแล้ว</option>
+                            <option value="2">กำลังจัดส่ง</option>
+                            <option value="3">จัดส่งแล้ว</option>
+                        </select>
+
+                        <button type="button" class="btn btn-success">SAVE</button>
+
+
+                <tr>
+                    <td>17/02/60</td>
+                    <td>
+                        ข้าวตังเสวยรสข้าวหอมมะลิ 50 ถุง
+                        ข้าวตังเสวยรสข้าวไรซ์เบอร์รี่ 20ถุง
+                    </td>
+                    <td>ปราณี</td>
+                    <td>
+                        <select>
+                            <!--dropdown-->
+                            <option value="0">ยังไม่โอน</option>
+                            <option value="1">โอนแล้ว</option>
+                            <option value="2">กำลังจัดส่ง</option>
+                            <option value="3">จัดส่งแล้ว</option>
+                        </select>
+
+                        <button type="button" class="btn btn-success">SAVE</button>
+
+                    </td>
+
+
+
+</table>
+
+
+</body>
+</html>
