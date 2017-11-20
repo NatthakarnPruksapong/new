@@ -142,6 +142,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -192,6 +193,7 @@
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\List\ListName.cshtml" />
     <Content Include="Views\Menu\Menu.cshtml" />
+    <Content Include="Views\History\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
