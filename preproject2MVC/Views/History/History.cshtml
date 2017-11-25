@@ -1,20 +1,69 @@
 ﻿
 @{
     ViewBag.Title = "History";
+    Layout = null;
 }
-
-<h2>History</h2>
 <!DOCTYPE html>
-<html lang="en">
-<head>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <link href="~/Content/style.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+   
 </head>
+<body>
+    <div class="text-center">
+        <h2>History</h2>
+
+        <p>ID:5  ชื่อ:ชมพู่ คำแก้ว </p>
+        <p>ที่อยู่:184 ติวานนถนนท์ ตำบลท่าทราย อำเภอเมืองนนท์ จังหวัดนนทบุรี รหัสไปรษณีย์ 11000</p>
+    </div>
+        <!--------------------------------------------Table------------------------------------------------------------------>
+        <div class="container">
+
+            <table id="customers">
+
+                <tr>
+                    <th>วันเ/ดือน/ปี</th>
+                    <th>สถานะ</th>
+                    <th>หมายเหตุ</th>
+                </tr>
+
+                <tr>
+                    <td>12/05/60</td>
+                    <td>ถูกแบน</td>
+                    <td>ค้างชำระ 2 ออร์เดอร์</td>
+                </tr>
+
+                <tr>
+                    <td>15/06/60</td>
+                    <td>ปลดแบน</td>
+                    <td>ชำระ 1 ออร์เดอร์</td>
+                </tr>
+
+                <tr>
+                    <td>11/11/60</td>
+                    <td>ถูกแบน</td>
+                    <td>ค้างชำระ 2 ออร์เดอร์</td>
+                </tr>
+            </table>
+            <ul>
+
+                <div class="container">
+
+                    <button type="button" class="btn btn-success" onclick ="location.href='@Url.Action("ListName", ("List"))'">BACK</button>
+
+                </div>
+            </ul>
+            </div>
+        
+            
+</body>
+</html>

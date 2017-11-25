@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "ListName";
-    Layout = null;
+
 }
 
 <!DOCTYPE html>
@@ -16,25 +16,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <!--------------------------------------------tapbar------------------------------------------------------------------>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="#">ORDER</a></li>
-                <li class="active"><a href="#">LIST NAME</a></li>
-                <li><a href="#">MENU PRODUCT</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>  <!---logout---->
-            </ul>
-
-        </div>
-    </nav>
-
 
 
     <!--------------------------------------------checkbox------------------------------------------------------------------>
@@ -47,13 +28,7 @@
             <label class="checkbox-inline">
                 <input type="checkbox" value="">Ban
             </label>
-            <!--search-->
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" name="search">
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-            </div>
+      
         </form>
     </div>
 
@@ -64,17 +39,17 @@
         <table id="customers">
 
             <tr>
-                <th>ID</th>
+                
                 <th>ชื่อลูกค้า</th>
                 <th>ที่อยู่(ตำบล) </th>
                 <th>สถานะลูกค้า</th>
             </tr>
 
-
+@foreach (var col in ViewBag.query)
+{
             <tr>
-                <td>0</td>
-                <td>ไพรวรรณ ชำนาญ</td>
-                <td>ท่าทราย</td>
+                <td>@col.u_name @col.u_lastname</td>
+                <td>@col.subarea</td>
                 <td>
                     <select>
                         <!--dropdown-->
@@ -82,28 +57,12 @@
                         <option value="1">Ban</option>
 
                     </select>
-
-                    <button type="button" class="btn btn-success">SAVE</button>
-                    <button type="button" class="btn btn-primary">ข้อมูลเพิ่มเติม</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("BanUser", ("BanUser"))'">SAVE</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("History", ("History"))'">ข้อมูลเพิ่มเติม</button>
+                    </td>
             </tr>
+}
 
-
-
-            <tr>
-                <td>1</td>
-                <td>สุวรรณ ไชยา</td>
-                <td>บางรัก</td>
-                <td>
-                    <select>
-                        <!--dropdown-->
-                        <option value="0">Normal</option>
-                        <option value="1">Ban</option>
-
-                    </select>
-
-                    <button type="button" class="btn btn-success">SAVE</button>
-                    <button type="button" class="btn btn-primary"  onclick ="location.href='@Url.Action("History", ("History"))'">ข้อมูลเพิ่มเติม</button>
-            </tr>
         </table>
 
         

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "addMenu";
+    Layout = null;
+}
+<link href="~/Content/StyleSheet.css" rel="stylesheet" />
+<link href="~/Content/style.css" rel="stylesheet" />
+@model preproject2MVC.Models.product
+    
+<h2>Add Menu</h2>
+
+
+
+    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="mid">
+
+            <p>เลือกรูปภาพ</p>
+            <input type="file" name="FileUpload" />
+            <input type="submit" name="Submit" id="Submit" value="Upload" />
+
+            <div class="col-sm-1">
+                <p>ID Product</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.p_id)
+            </div>
+
+            <div class="col-sm-1">
+                <p>ชื่อสินค้า</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.p_name)
+            </div>
+
+            <div class="col-sm-1">
+                <p>คำอธิบาย</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.p_description)
+            </div>
+
+            <div class="col-sm-1">
+                <p>ราคาปลีก</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.retail_price)
+            </div>
+
+
+            <div class="col-sm-1">
+                <p>ราคาส่ง</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.wholesale_price)
+            </div>
+
+
+            <div class="col-sm-1">
+                <p>ราคาVIP</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.agent_price)
+            </div>
+
+
+            <div class="col-sm-1">
+                <p>สถานะ</p>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.p_status)
+            </div>
+
+
+        </div>
+    }
+<div class="container">
+<input type="submit" name="Submit" id="Submit" value="ADD" />
+    <input type="button". name="cancel" id="cancel" value="Cancel"  />
+</div>
+        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Menu", ("Menu"))'">BACK</button>
