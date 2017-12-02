@@ -3,7 +3,18 @@
     ViewBag.Title = "login";
     Layout = null;
 }
+<style>
+    .welcom {
+        margin-left: 30%;
+        margin-top: 20%;
+       
+    }
+    .btn.btn-info.btn-lg {
+        margin-left:45%;
+        margin-top : 6%;
+    }
 
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +29,11 @@
 <body>
 
     <div class="container">
-        <h2>Modal Example</h2>
+        
+        <h2 class="welcom">ยินดีต้อนรับเข้าสู่ร้านขนมข้าวตังเสวยแม่ณี</h2>
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">เข้าสู่ระบบ</button>
+        
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -35,23 +47,24 @@
                     <div class="modal-body">
                         
 
-                        <form action="/action_page.php">
+                        <form  action="/Login/LoginInToWeb" method="post">
                       
                             <div class="container">
                                 <label><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username" name="uname" required>
+                                <input type="text" placeholder="Enter Username" name="ad_name" required>
                                 <label><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password" name="psw" required>
+                                <input type="password" placeholder="Enter Password" name="ad_psw" required>
                             </div>
                             <div class="container">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Order", ("Order"))'">Login</button>
                                 
                             </div>
                             @*<div class="container" style="background-color:#f1f1f1">
                                 <button type="button" class="cancelbtn">Cancel</button>
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>*@
-                            </form>
+                            <button type="submit" class="btn btn-primary" >Login</button>
+                     </form>
+
 
                             
 

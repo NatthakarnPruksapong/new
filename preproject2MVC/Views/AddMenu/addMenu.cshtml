@@ -9,73 +9,25 @@
     
 <h2>Add Menu</h2>
 
+<form action="/AddMenu/AddMenuProuct" enctype="multipart/form-data" method="post">
 
+    <p>เลือกรูปภาพ</p>
+    <input type="file" name="file" id="file" />
 
-    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div class="mid">
+    <input name="name" type="text" placeholder="ชื่อสินค้า"/>
+            
+    <input name="detail" type="text" placeholder="รายละเอียดสินค้า"/>
 
-            <p>เลือกรูปภาพ</p>
-            <input type="file" name="FileUpload" />
-            <input type="submit" name="Submit" id="Submit" value="Upload" />
+    <input name="retail" type="text" placeholder="ราคาปลีก" />
 
-            <div class="col-sm-1">
-                <p>ID Product</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.p_id)
-            </div>
+    <input name="wholesale" type="text" placeholder="ราคาส่ง" />
 
-            <div class="col-sm-1">
-                <p>ชื่อสินค้า</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.p_name)
-            </div>
+    <input name="agent_price" type="text" placeholder="ราคาตัวแทนจำหน่าย" />
 
-            <div class="col-sm-1">
-                <p>คำอธิบาย</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.p_description)
-            </div>
+    <input name="status" type="text" placeholder="สถานะสินค้า"/>
 
-            <div class="col-sm-1">
-                <p>ราคาปลีก</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.retail_price)
-            </div>
+    <input type="submit" name="Submit" id="Submit" value="ADD" />
 
+</form>
 
-            <div class="col-sm-1">
-                <p>ราคาส่ง</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.wholesale_price)
-            </div>
-
-
-            <div class="col-sm-1">
-                <p>ราคาVIP</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.agent_price)
-            </div>
-
-
-            <div class="col-sm-1">
-                <p>สถานะ</p>
-            </div>
-            <div class="col-md-3">
-                @Html.TextBoxFor(m => m.p_status)
-            </div>
-
-
-        </div>
-    }
-<div class="container">
-<input type="submit" name="Submit" id="Submit" value="ADD" />
-    <input type="button". name="cancel" id="cancel" value="Cancel"  />
-</div>
         <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Menu", ("Menu"))'">BACK</button>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "HOrder";
+}
+
+
+@{
+    ViewBag.Title = "HOrder";
+}
+<link href="~/Content/Styletext.css" rel="stylesheet" />
+<h2>รายละเอียดออร์เดอร์</h2>
+
+<h4>รหัสออเดอร์ @ViewBag.queryorder.o_id</h4>
+
+<table id="customers">
+    <tr>
+        <th>รหัสออเดอร์</th>
+        <th>จำนวนที่สั่ง</th>
+    </tr>
+    @foreach (var or in ViewBag.querydetailOrder)
+    {
+        <tr>
+            <th>@or.p_id</th>
+            <th>@or.quantity</th>
+        </tr>
+    }
+
+</table>
+
+<div>
+    ราคาทั้งหมด @ViewBag.queryorder.total_price บาท
+</div>
+<div>
+    <h4>ชื่อลูกค้า : @ViewBag.queryuser.u_name @ViewBag.queryuser.u_lastname เบอร์โทร:@ViewBag.queryuser.u_tel</h4>
+    ที่อยู่ปัจจุบันของลูกค้า : บ้านเลขที่ @ViewBag.queryuser.house_no หมู่บ้าน @ViewBag.queryuser.village ซอย @ViewBag.queryuser.lane  ถนน @ViewBag.queryuser.road ตำบล @ViewBag.queryuser.subarea อำเภอ @ViewBag.queryuser.area จังหวัด @ViewBag.queryuser.province รหัสไปรษณีย์ @ViewBag.queryuser.postal_code
+</div>
+<div>
+    หมายเหตุ : @ViewBag.queryuser.annotation
+</div>
+<div>
+    ที่อยู่ที่จัดส่งออเดอร์นี้ : @ViewBag.queryorder.o_address
+</div>
+<div>
+    หลักฐานการโอน : <img src="http://webforlinechat.azurewebsites.net/Image/@ViewBag.queryorder.image_slip" style="width:250px;height:350px;"/>
+</div>
+
+<button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Order", ("Order"))'">BACK</button>

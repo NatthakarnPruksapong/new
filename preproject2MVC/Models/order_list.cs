@@ -18,7 +18,6 @@ namespace preproject2MVC.Models
         public order_list()
         {
             this.products_in_order = new HashSet<products_in_order>();
-            this.customer = new HashSet<customer>();
         }
     
         public int o_id { get; set; }
@@ -28,10 +27,10 @@ namespace preproject2MVC.Models
         public short payment { get; set; }
         public string image_slip { get; set; }
         public short total_price { get; set; }
+        public string line_id { get; set; }
     
+        public virtual customer customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<products_in_order> products_in_order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<customer> customer { get; set; }
     }
 }

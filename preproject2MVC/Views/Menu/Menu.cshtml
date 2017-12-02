@@ -21,15 +21,37 @@
 <body>
    
     
-    <div class="card"  style="width:400px" id="bg">
-        <tr>
-        <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
-        <div class="card-body">
-            <h4 class="card-title">John Doe</h4>
-            <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn btn-primary">See Profile</a>
-        </div>
+    <div class="container">
+        <table id="customers">
+            <tr>
+                <th>รหัสสินค้า</th>
+                <th>ภาพสินค้า</th>
+                <th>รายละเอียดสินค้า</th>
+                <th>ราคาขายปลีก</th>
+                <th>ราคาขายส่ง</th>
+                <th>ราคาตัวแทนจำหน่าย</th>
+                <th>ลบ</th>
             </tr>
+         @foreach (var pd in ViewBag.querymenu)
+         {
+             <tr>
+                 <td>@pd.p_id</td>
+                 <td>
+                     <img src="~/BG/@pd.p_image" style="width:70px;height:70px;" />
+                 </td>
+                 <td>@pd.p_description</td>
+                 <td>@pd.retail_price</td>
+                 <td>@pd.wholesale_price</td>
+                 <td>@pd.agent_price</td>
+                 <td>
+                     <form action="/Menu/DeleteMenu" method="post">
+                         <input type="hidden" id="pd_id" name="pd_id" value="@pd.p_id" />
+                         <button type="submit" class="btn btn-primary" >Delete</button>
+                     </form>
+                 </td> 
+             </tr>
+         }
+        </table>
     </div>
 
 

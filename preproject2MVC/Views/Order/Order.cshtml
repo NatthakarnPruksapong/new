@@ -1,8 +1,12 @@
-﻿
+﻿@using preproject2MVC.Models;
+
+@model List<customer_order>
+
 @{
     ViewBag.Title = "Order";
    
 }
+
 
 
 <!DOCTYPE html>
@@ -27,21 +31,14 @@
     <!--------------------------------------------checkbox------------------------------------------------------------------>
     <div class="container">
 
-        <form>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="">ที่ยังไม่โอน
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="">ที่โอนแล้ว
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="">ที่ต้องทำการจัดส่ง
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="">ที่จัดส่งแล้ว
-            </label>
-
-            
+        <form action="/Order/Search" method="post">
+            <select id="optionCheck" name="optionCheck">
+                <option value="0">ยังไม่โอน</option>
+                <option value="1">โอนแล้ว</option>
+                <option value="2">กำลังจัดส่ง</option>
+                <option value="3">จัดส่งแล้ว</option>
+            </select>
+            <button type="submit" class="btn btn-primary">ค้นหา</button>
         </form>
     </div>
             <!--------------------------------------------table------------------------------------------------------------------>
@@ -51,30 +48,57 @@
             <tr>
                 <th>วัน/เดือน/ปี</th>
                 <th>รหัสออเดอร์ออเดอร์</th>
-                <th>สถานที่จัดส่ง</th>
-                <th>สถานะออร์เดอร์</th>
+                <th>ชื่อ
+                ลูกค้าที่สั่ง</th>
+                <th>สถานะออเดอร์</th>
+                <th>แก้ไขและดูข้อมูล</th>
             </tr>
-        @foreach (var col in ViewBag.query)
+        @foreach (var col in Model)
         {
             
             <tr>
-                <td>@col.o_date</td>
+                <td>@col.date</td>
                 <td>
-                    @col.o_id
+                    @col.idorder
                 </td>
-                <td>@col.o_address</td>
                 <td>
-                    <select>
-                        <!--dropdown-->
+                    @col.name
+                </td>
+                <td>@if(col.status == 0)
+                {
+                    <label>ยังไม่โอน</label>
+                }
+                else if (col.status == 1)
+                {
+                    <label>โอนแล้ว</label>
+                }
+                else if (col.status == 2)
+                {
+                    <label>กำลังจัดส่ง</label>
+                }
+                else if (col.status == 3)
+                {
+                    <label>จัดส่งแล้ว</label>
+                }
+                </td>
+                <td>
+                    <form action="/Order/HOrder" method="post">
+                        <input type="hidden" id="o_id" name="o_id" value="@col.idorder" />
+                        <select id="option" name="option">
+                            <!--dropdown-->
 
-                        <option value="0">ยังไม่โอน</option>
-                        <option value="1">โอนแล้ว</option>
-                        <option value="2">กำลังจัดส่ง</option>
-                        <option value="3">จัดส่งแล้ว</option>
-                    </select>
-
+                            <option value="0">ยังไม่โอน</option>
+                            <option value="1">โอนแล้ว</option>
+                            <option value="2">กำลังจัดส่ง</option>
+                            <option value="3">จัดส่งแล้ว</option>
+                        </select>
+                    </form>
+                    
                     <button type="button" class="btn btn-success">SAVE</button>
-                    <button type="button" class="btn btn-primary">ข้อมูลเพิ่มเติม</button>
+                    <form action="/Order/HOrder" method="post">
+                        <input type="hidden" id="o_id" name="o_id" value="@col.idorder" />
+                        <button type="submit" class="btn btn-primary" >ข้อมูลเพิ่มเติม</button>
+                    </form>
             </tr>
         }
         </table>

@@ -21,13 +21,12 @@
     <!--------------------------------------------checkbox------------------------------------------------------------------>
     <div class="container">
 
-        <form>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="">Normal
-            </label>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="">Ban
-            </label>
+        <form action="/List/SearchListName" method="post">
+            <select id="optionCheck" name="optionCheck">
+                <option value="0">Normal</option>
+                <option value="1">Ban</option>
+            </select>
+            <button type="submit" class="btn btn-primary">ค้นหา</button>
       
         </form>
     </div>
@@ -43,6 +42,7 @@
                 <th>ชื่อลูกค้า</th>
                 <th>ที่อยู่(ตำบล) </th>
                 <th>สถานะลูกค้า</th>
+                <th>แก้ไข</th>
             </tr>
 
 @foreach (var col in ViewBag.query)
@@ -50,6 +50,15 @@
             <tr>
                 <td>@col.u_name @col.u_lastname</td>
                 <td>@col.subarea</td>
+                <td>@if(col.u_status == 0)
+                {
+                    <label>Normal</label>
+                }
+                else if (col.u_status == 1)
+                {
+                    <label>Ban</label>
+                }
+                </td>
                 <td>
                     <select>
                         <!--dropdown-->
